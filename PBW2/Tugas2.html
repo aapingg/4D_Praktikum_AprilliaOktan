@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Sederhana</title>
+</head>
+<body>
+    <p>Nama: <input type ="text" name = "username" required minlength ="5"></p>
+    <p>Email: <input type ="text" name = "username" required minlength ="5"></p>
+    <p>Jenis Kelamin: <label><input type = "radio" name = "gender" value = "male">Laki - Laki</label><label><input type = "radio" name = "gender" value = "female">Perempuan</label></p>
+    <p>Hobi: <label> <input type = "checkbox" name = "hobi" value "musik">Musik</label><label> <input type = "checkbox" name = "hobi" value "olahraga">Olahraga</label>
+    </p>
+    <p>Kota: <select name = "pilihan">
+        <option value = "1">Jakarta</option>
+        <option value = "2">Subang</option>
+        <option value = "3">Bandung</option>
+        <option value = "4">Karawang</option>
+        <option value = "5">Bekasi</option>
+    </select></p>
+    <p><form action="upload.php" method= "post" enctype = "multipart/form-data">
+        <label for="file">Upload Foto:</label>
+        <input type="file" id="file" name="file">
+        <button type="submit">Choose File</button>    
+    </form></p>
+    <a href = "Berhasil.html">
+        <button type="button">Kirim</button>
+    </a>
+</body>
+</html>
