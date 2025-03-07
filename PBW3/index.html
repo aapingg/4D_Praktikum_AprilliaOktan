@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .input-conteiner {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .text {
+            margin-bottom: 10px;
+        }
+
+        .input-text {
+            padding: 5px;
+            border-radius: 5px;
+        }   
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Selamat Datang di Website Sederhana</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang</a></li>
+            <li><a href="#">Layanan</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+
+
+    <div class="container">
+        <section class="content">
+            <h2>Formulir Pendaftaran</h2>
+            <p class="text">Silahkan isi formulir dibawah ini untuk mendaftar.</p>
+            <form action="" class="input-conteiner">
+                <label for="nama">Nama Lengkap:</label>
+                <input class="input-text" type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap">
+                <label for="email">Email:</label>
+                <input class="input-text" type="email" id="email" name="email" placeholder="Masukkan email">
+                <label for="pesan">Password:</label>
+                <input class="input-text" type="password" id="password" name="password" placeholder="Masukkan password">
+                <label>Jenis Kelamin:</label>
+                <label>Laki Laki</label>
+                <input type="radio" />
+                <label>Perempuan</label>
+                <input type="radio" />
+                <hr>
+                <label>Hobi:</label>
+                <label>Makan</label>
+                <input type="checkbox" />
+                <label>Membaca</label>
+                <input type="checkbox" />
+                <label>Menulis</label>
+                <input type="checkbox" />
+                <hr>
+                <label>Pilih Kota:</label>
+                <select>
+                    <option>Jakarta</option>
+                    <option>Bandung</option>
+                    <option>Surabaya</option>
+                    <option>Yogyakarta</option>
+                    <option>Malang</option>
+                    <option>Denpasar</option>
+                </select>
+                <textarea style="height: 100px;" placeholder="Tulis Pesan Di sini..." type="text"></textarea>
+                <a href = "Berhasil.html">
+                    <button class="btn">Kirim</button>
+                </a>
+            </form>
+        </section>
+
+        <aside class="sidebar">
+            <h2>Sidebar</h2>
+            <p>Bagian sidebar dapat berisi tautan, iklan, atau informasi tambahan.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Halaman Web Singaperbangsa. Dibuat dengan CSS.</p>
+    </footer>
+
+
+</body>
+
+</html>
