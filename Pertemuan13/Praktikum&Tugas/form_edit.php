@@ -2,9 +2,7 @@
 include 'koneksi_db.php';
 include 'nav.php';
 
-
 $id = $_GET['id'] ?? 0;
-
 
 // Ambil data buku berdasarkan ID
 $stmt = $conn->prepare("SELECT * FROM Buku WHERE ID = ?");
@@ -12,8 +10,12 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-?>
 
+// Cek jika data tidak ditemukan
+if (!$row) {
+    die("Data buku dengan ID $id tidak ditemukan.");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,28 +31,38 @@ $row = $result->fetch_assoc();
        <form method="post" action="proses_edit.php">
            <input type="hidden" name="id" value="<?= $row['ID'] ?>">
 
-
            <div class="mb-3">
                <label for="judul" class="form-label">Judul</label>
-               <input type="text" class="form-control" id="judul" name="judul" value="<?= htmlspecialchars($row['Judul']) ?>" required>
+               <input type="text" class="form-control" id="judul" name="judul" 
+                   value="<?= htmlspecialchars($row['Judul'] ?? '') ?>" required>
            </div>
+
            <div class="mb-3">
                <label for="penulis" class="form-label">Penulis</label>
-               <input type="text" class="form-control" id="penulis" name="penulis" value="<?= htmlspecialchars($row['Penulis']) ?>" required>
+               <input type="text" class="form-control" id="penulis" name="penulis" 
+                   value="<?= htmlspecialchars($row['Penulis'] ?? '') ?>" required>
            </div>
+
            <div class="mb-3">
                <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-               <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" value="<?= $row['Tahun_Terbit'] ?>" required>
+               <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" 
+                   value="<?= $row['Tahun_Terbit'] ?? '' ?>" required>
            </div>
+
            <div class="mb-3">
                <label for="harga" class="form-label">Harga</label>
-               <input type="number" class="form-control" id="harga" name="harga" value="<?= $row['Harga'] ?>" step="0.01" required>
+               <input type="number" class="form-control" id="harga" name="harga" step="0.01"
+                   value="<?= $row['Harga'] ?? '' ?>" required>
            </div>
+
            <div class="mb-3">
                <label for="stok" class="form-label">Stok</label>
-               <input type="number" class="form-control" id="stok" name="stok" value="<?= $row['stok'] ?>" required>
+               <input type="number" class="form-control" id="stok" name="stok" 
+                   value="<?= $row['stok'] ?? '' ?>" required>
            </div>
+
            <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+           <a href="daftar_buku.php" class="btn btn-secondary">Batal</a>
        </form>
    </div>
 </body>

@@ -8,6 +8,14 @@
    <title>Daftar Buku</title>
 </head>
 <body>
+    <?php
+       session_start();
+       if (!isset($_SESSION['login_Un51k4'])) {
+            header("Location: login.php?message=" . urlencode("Mengakses fitur harus login dulu bro."));
+           exit;
+       }
+   ?>
+
    <?php include 'nav.php'; ?>
    <div class="container mt-4">
        <h2>Daftar Buku</h2>
@@ -41,6 +49,7 @@
                    <th>Penulis</th>
                    <th>Tahun Terbit</th>
                    <th>Harga</th>
+                   <th>Stok</th>
                </tr>
            </thead>
            <tbody>
@@ -51,6 +60,7 @@
                    <td><?php echo htmlspecialchars($row['Penulis']) ?></td>
                    <td><?php echo $row['Tahun_Terbit'] ?></td>
                    <td>Rp<?php echo number_format($row['Harga'], 2) ?></td>
+                   <td><?php echo $row['Stok'] ?></td>
                    <td>
                        <a href="form_edit.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-warning">Edit</a>
                        <a href="proses_hapus.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
